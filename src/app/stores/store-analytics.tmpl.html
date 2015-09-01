@@ -1,47 +1,43 @@
 <div class="dashboard-container overlay-10 padded-content-page" layout="column">
     <div layout="row" layout-sm="column" layout-margin>
-        <widget palette-background="deep-orange:500" content-layout="row" content-layout-align="space-between center" content-padding>
+        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
             <div>
-                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-comments"></md-icon>
+                <p translate>DASHBOARDS.ANALYTICS.DURATION_CHECKOUT</p>
             </div>
             <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="54" decimals="0"></p>
-                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>DASHBOARDS.ANALYTICS.COMMENTS</p>
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="24" decimals="0"></p>
+                <p translate>DASHBOARDS.ANALYTICS.MINUTES</p>
             </div>
         </widget>
-        <widget palette-background="cyan:500" content-layout="row" content-layout-align="space-between center" content-padding>
+        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
             <div>
-                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-twitter"></md-icon>
+                <p translate>DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION</p>
             </div>
             <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="101" decimals="0"></p>
-                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>DASHBOARDS.ANALYTICS.TWEETS</p>
+                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="21" decimals="0"></p>
+                <p translate>DASHBOARDS.ANALYTICS.MINUTES</p>
             </div>
         </widget>
-        <widget palette-background="indigo:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div>
-                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-facebook"></md-icon>
-            </div>
-            <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="943" decimals="0"></p>
-                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>DASHBOARDS.ANALYTICS.LIKES</p>
+        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
+            <div layout="column" layout-align="center end" style="margin-right: auto;width: 200px">
+                <span  countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                <span  countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}" decimals="0"></span>
+                <span  countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}" decimals="0"></span>
             </div>
         </widget>
-        <widget palette-background="teal:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div>
-                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-eye"></md-icon>
-            </div>
-            <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0" countupto="944" decimals="0"></p>
-                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>DASHBOARDS.ANALYTICS.REACH</p>
+        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
+            <div layout="column" layout-align="center end" style="margin-right: auto;width: 200px">
+                <span  countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                <span  countupto="20" options="{prefix:'Aisles : ', suffix:'%'}" decimals="0"></span>
+                <span  countupto="10" options="{prefix:'End Caps : ', suffix:'%'}" decimals="0"></span>
             </div>
         </widget>
     </div>
 
     <div layout="row" layout-sm="column" layout-margin>
         <widget chartjs-line-widget flex title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <div flex>
-                <canvas class="chart-line" data="lineChart.data" labels="lineChart.labels" legend="false" series="lineChart.series" options="lineChart.options"></canvas>
+            <div>
+
             </div>
         </widget>
         <widget flex load-data-widget="{ referrals: 'app/stores/data/referrals.json' }" title="DASHBOARDS.ANALYTICS.REFERRALS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
