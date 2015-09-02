@@ -32,3 +32,17 @@
     height: 72px;
   }
 }
+
+div[ng-controller=OverlayRemoveCtrl] {
+  position: relative;
+}
+div[ng-controller=OverlayRemoveCtrl] #panel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -90px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}
