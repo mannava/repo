@@ -37,24 +37,14 @@
     <div layout="row" layout-sm="column" layout-margin>
         <widget flex title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
             <div ng-controller="StoreMap">
-                <map zoom="13" center="37.774546, -122.433523">
-                    <heatmap-layer id="foo" data="hello"></heatmap-layer>
+                <map zoom="{{zoom}}" center="{{center}}">
+                    <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
+                    </shape>
                 </map>
             </div>
         </widget>
         <widget flex load-data-widget="{ referrals: 'app/stores/data/referrals.json' }" title="DASHBOARDS.ANALYTICS.REFERRALS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th ng-repeat="header in ::referrals.header | limitTo:3">{{::header}}</th>
-                    </tr>
-                </thead>
-                <tbody class="md-caption">
-                    <tr ng-repeat="referral in ::referrals.data | limitTo:5">
-                        <td ng-repeat="data in ::referral | limitTo:3">{{::data}}</td>
-                    </tr>
-                </tbody>
-            </table>
+
         </widget>
     </div>
     <div layout="row" layout-sm="column" layout-margin>
