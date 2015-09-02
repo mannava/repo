@@ -37,11 +37,8 @@
     <div layout="row" layout-sm="column" layout-margin>
         <widget flex title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
             <div ng-controller="StoreMap">
-                <map zoom="{{zoom}}" center="{{center}}">
-                    <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
-                    </shape>
-                    <heatmap-layer id="foo" data="taxiData">
-                    </heatmap-layer>
+                <map zoom="13" center="37.774546, -122.433523" map-type-id="SATELLITE">
+                    <heatmap-layer id="foo" data="hello"></heatmap-layer>
                 </map>
             </div>
         </widget>

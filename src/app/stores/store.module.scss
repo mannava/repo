@@ -33,14 +33,29 @@
   }
 }
 
-div[ng-controller=OverlayRemoveCtrl] {
+/*div[ng-controller=StoreMap] {
   position: relative;
 }
-div[ng-controller=OverlayRemoveCtrl] #panel {
+div[ng-controller=StoreMap] #panel {
   position: absolute;
   top: 5px;
   left: 50%;
   margin-left: -90px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}*/
+
+div[ng-controller=StoreMap] {
+  position: relative;
+}
+
+div[ng-controller=StoreMap] #panel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -180px;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
