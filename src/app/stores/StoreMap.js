@@ -13,6 +13,11 @@
  */
 angular.module('CoursaStores').
     controller('StoreMap', function ($scope) {
+        var storeMap = angular.element("#storeMap");
+        $scope.center = "37.304588, -121.865787";
+        $scope.zoom = 18;
+        $scope.imgUrl = 'app/stores/Target_SJ_overlay.png'
+        $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
 
         $scope.hello = [
             new google.maps.LatLng(37.782551, -122.445368),
