@@ -4,7 +4,7 @@ angular.module('Coursa', [
     // inject angular modules
     'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngMaterial',
     // inject extra 3rd party angular modules
-    'ui.router', 'pascalprecht.translate', 'LocalStorageModule', 'googlechart', 'chart.js', 'angularMoment', 'uiGmapgoogle-maps', 'md.data.table','ngMap',
+    'ui.router', 'pascalprecht.translate', 'LocalStorageModule', 'googlechart', 'chart.js', 'angularMoment', 'uiGmapgoogle-maps', 'md.data.table','ngMap','gridster',
     // inject our own Coursa modules
      'CoursaStores'
 ])

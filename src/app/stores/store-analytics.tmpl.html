@@ -43,48 +43,21 @@
                 </map>
             </div>
         </widget>
-        <widget flex load-data-widget="{ referrals: 'app/stores/data/referrals.json' }" title="DASHBOARDS.ANALYTICS.REFERRALS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
+    </div>
 
-        </widget>
-    </div>
-    <div layout="row" layout-sm="column" layout-margin>
-        <widget flex load-data-widget="{ social: 'app/stores/data/social.json' }" title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th ng-repeat="header in ::social.header | limitTo:3">{{::header}}</th>
-                    </tr>
-                </thead>
-                <tbody class="md-caption">
-                    <tr ng-repeat="socialData in ::social.data | limitTo:5">
-                        <td ng-repeat="data in ::socialData | limitTo:3">{{::data}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </widget>
-        <widget chartjs-pie-widget flex title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <div flex>
-                <canvas class="chart-doughnut" data="pieChart.data" legend="true" labels="pieChart.labels"></canvas>
-            </div>
-        </widget>
-    </div>
-    <div layout="row" layout-md="column" layout-sm="column" layout-margin>
-        <widget google-geochart-widget flex title="DASHBOARDS.ANALYTICS.LOCATION" subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top" content-padding>
-            <div class="google-chart" google-chart chart="geoChartData"></div>
-        </widget>
-        <widget flex load-data-widget="{ social: 'app/stores/data/location.json' }" title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th ng-repeat="header in ::social.header | limitTo:3">{{::header}}</th>
-                    </tr>
-                </thead>
-                <tbody class="md-caption">
-                    <tr ng-repeat="socialData in ::social.data | limitTo:5">
-                        <td ng-repeat="data in ::socialData | limitTo:3">{{::data}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </widget>
-    </div>
+   <!--  <widget  flex load-data-widget="{ social: 'app/stores/data/location.json' }" title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
+
+          <div gridster>
+              <div ng-controller="StoreMap" gridster-item="item" >
+                  <map zoom="{{zoom}}" center="{{center}}">
+                      <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
+                      </shape>
+                  </map>
+              </div>
+
+              <div gridster-item="item" style="background-color: #FF00FF"></div>
+              <div gridster-item="item" style="background-color: #E9DC51"></div>
+
+          </div>
+      </widget>-->
 </div>
