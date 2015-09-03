@@ -61,3 +61,25 @@ div[ng-controller=StoreMap] #panel {
   padding: 5px;
   border: 1px solid #999;
 }
+
+.storeMap{
+  height: 600px;
+}
+/*
+
+.widget > {
+  width: 100%;
+  height: 100%;
+  background-color: #00193a;
+}
+*/
+
+[layout-margin] > [flex] {
+  margin: 3px;
+}
+
+@media (max-width: 599px){
+  [layout-margin] > [flex-sm] {
+    margin: 0;
+  }
+}

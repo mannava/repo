@@ -1,47 +1,37 @@
-<div class="dashboard-container overlay-10 padded-content-page" layout="column">
+<md-tab-body>
+<div class="dashboard-container overlay-10 padded-content-page" layout="column" layout-margin>
+
     <div layout="row" layout-sm="column" layout-margin>
-        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div>
-                <p translate>DASHBOARDS.ANALYTICS.DURATION_CHECKOUT</p>
-            </div>
-            <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="24" decimals="0"></p>
-                <p translate>DASHBOARDS.ANALYTICS.MINUTES</p>
+        <widget  layout-margin flex palette-background="light-blue:500" title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top" >
+            <div layout-align="start center" layout="column">
+                <p class="md-display-1" layout-align="space-between center" countupto="24" decimals="0" options="{suffix:' Minutes'}"></p>
             </div>
         </widget>
-        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div>
-                <p translate>DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION</p>
-            </div>
-            <div layout="column" layout-align="center end">
-                <p class="md-display-3 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis" countupto="21" decimals="0"></p>
-                <p translate>DASHBOARDS.ANALYTICS.MINUTES</p>
+        <widget layout-margin flex palette-background="light-blue:600" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
+            <div layout-align="start center" layout="column">
+                <p class="md-display-1" countupto="21" decimals="0" options="{suffix:' Minutes'}"></p>
             </div>
         </widget>
-        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div layout="column" layout-align="center end" style="margin-right: auto;width: 200px">
-                <span  countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
-                <span  countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}" decimals="0"></span>
-                <span  countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}" decimals="0"></span>
+        <widget layout-margin flex palette-background="light-blue:700"title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
+            <div layout-align="start center" layout="column" >
+                <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                <span class="md-title" countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}" decimals="0"></span>
+                <span class="md-title" countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}" decimals="0"></span>
             </div>
         </widget>
-        <widget palette-background="light-blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
-            <div layout="column" layout-align="center end" style="margin-right: auto;width: 200px">
-                <span  countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
-                <span  countupto="20" options="{prefix:'Aisles : ', suffix:'%'}" decimals="0"></span>
-                <span  countupto="10" options="{prefix:'End Caps : ', suffix:'%'}" decimals="0"></span>
+        <widget layout-margin flex palette-background="light-blue:800" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
+            <div layout-align="start center" layout="column">
+                <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}" decimals="0"></span>
+                <span class="md-title" countupto="10" options="{prefix:'End Caps : ', suffix:'%'}" decimals="0"></span>
             </div>
         </widget>
     </div>
-
     <div layout="row" layout-sm="column" layout-margin>
-        <widget flex title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-            <div ng-controller="StoreMap">
-                <map zoom="{{zoom}}" center="{{center}}">
-                    <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
-                    </shape>
-                </map>
-            </div>
+        <widget layout-margin palette-background="blue:500" title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE"  title-position="top">
+            <map ng-controller="StoreMap" zoom="{{zoom}}" center="{{center}}" class="storeMap">
+                <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
+            </map>
         </widget>
     </div>
 
@@ -61,3 +51,57 @@
           </div>
       </widget>-->
 </div>
+    <md-tab-body>
+<!--
+<md-tab-body>
+    <div layout="row" layout-sm="column">
+        <widget layout-margin palette-background="blue:500" title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE"  title-position="top">
+            <map ng-controller="StoreMap" zoom="{{zoom}}" center="{{center}}" class="storeMap">
+                <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
+            </map>
+        </widget>
+        <div flex="15" layout="column">
+            <widget  layout-margin flex palette-background="light-blue:500" title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top" >
+                <div layout-align="start center" layout="column">
+                    <p class="md-display-1" layout-align="space-between center" countupto="24" decimals="0" options="{suffix:' Minutes'}"></p>
+                </div>
+            </widget>
+            <widget layout-margin flex palette-background="light-blue:600" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
+                <div layout-align="start center" layout="column">
+                    <p class="md-display-1" countupto="21" decimals="0" options="{suffix:' Minutes'}"></p>
+                </div>
+            </widget>
+            <widget layout-margin flex palette-background="light-blue:700"title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
+                <div layout-align="start center" layout="column" >
+                    <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                    <span class="md-title" countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}" decimals="0"></span>
+                    <span class="md-title" countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}" decimals="0"></span>
+                </div>
+            </widget>
+            <widget layout-margin flex palette-background="light-blue:800" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
+                <div layout-align="start center" layout="column">
+                    <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
+                    <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}" decimals="0"></span>
+                    <span class="md-title" countupto="10" options="{prefix:'End Caps : ', suffix:'%'}" decimals="0"></span>
+                </div>
+            </widget>
+        </div>
+    </div>
+    <div layout="row" layout-sm="column">
+        <widget layout-margin flex palette-background="indigo:500" avatar="assets/images/avatars/avatar-1.png" title="Manos Proistakis" subtitle="@christos - 16h" title-position="top">
+            <div linkify="twitter" class="font-weight-300 md-title font-style-italic line-height-big padding-normal">
+                Don't miss our latest Angular Material Design Admin Template: http://goo.gl/0Yxm1U  #angularJS #material #webdesign
+            </div>
+        </widget>
+        <widget layout-margin flex palette-background="deep-purple:500" avatar="assets/images/avatars/avatar-4.png" title="Despoina" subtitle="@christos - 16h" title-position="top">
+            <div linkify="twitter" class="font-weight-300 md-title font-style-italic line-height-big padding-normal">
+                New Freebie! Material Design Image fonts! In high res png's http://goo.gl/j1fWZz  #MaterialDesign #webdesign
+            </div>
+        </widget>
+        <widget layout-margin flex palette-background="purple:500" avatar="assets/images/avatars/avatar-1.png" title="Manos Proistakis" subtitle="@christos - 16h" title-position="top">
+            <div linkify="twitter" class="font-weight-300 md-title font-style-italic line-height-big padding-normal">
+                Triangular 1.1.2 our new #AngularJS admin template is out now!  FAB Speed Dial & FAB Toolbar added. Enjoy!
+            </div>
+        </widget>
+    </div>
+</md-tab-body>-->
