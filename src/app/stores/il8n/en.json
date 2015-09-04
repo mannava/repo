@@ -27,7 +27,11 @@
             "PRODUCT_CONVERSION":"Product Conversion",
             "STORE_COVERAGE":"Store Coverage",
             "PURCHASE_SEQUENCE":"Purchase Sequence",
+            "TOP_TEN_TRAFFICKED_ITEMS":"TOP Ten Trafficked Items",
+            "BOTTOM_TEN_TRAFFICKED_ITEMS":"BOTTOM Ten Trafficked Items",
+            "TOP_TEN_MISSED_CONVERSIONS":"TOP Missed Trafficked Items",
             "LOCATION": "Location",
+            "HEATMAP":"HEATMAP",
             "DATE": "11/03/15 - 11/4/15"
         },
         "SERVER": {

@@ -1,57 +1,117 @@
-<md-tab-body>
-<div class="dashboard-container overlay-10 padded-content-page" layout="column" layout-margin>
+<md-tab-body ng-controller="StoreMap">
+    <div class="dashboard-container overlay-10 padded-content-page">
 
-    <div layout="row" layout-sm="column" layout-margin>
-        <widget  layout-margin flex palette-background="light-blue:500" title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top" >
-            <div layout-align="start center" layout="column">
-                <p class="md-display-1" layout-align="space-between center" countupto="24" decimals="0" options="{suffix:' Minutes'}"></p>
+        <div layout="row" layout-margin>
+            <div layout="column" layout-margin>
+                <widget layout-margin flex palette-background="orange:400"
+                        title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top">
+                    <div layout-align="start center" layout="column">
+                        <span class="md-title" countupto="20" options="{prefix:'Max : '}"
+                              decimals="0"></span>
+                        <span class="md-title" countupto="2" options="{prefix:'Min : '}"
+                              decimals="0"></span>
+                    </div>
+                </widget>
+                <widget layout-margin flex palette-background="orange:500"
+                        title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
+                    <div layout-align="start center" layout="column">
+                        <span class="md-title" countupto="40" options="{suffix:'%'}"
+                          decimals="0"></span>
+                     </div>
+                </widget>
+                <widget layout-margin flex palette-background="orange:600"
+                        title="DASHBOARDS.ANALYTICS.PRODUCT_CONVERSION" title-position="top">
+                    <div layout-align="start center" layout="column">
+                        <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}"
+                              decimals="0"></span>
+                        <span class="md-title" countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}"
+                              decimals="0"></span>
+                        <span class="md-title" countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}"
+                              decimals="0"></span>
+                    </div>
+                </widget>
+                <widget layout-margin flex palette-background="orange:700" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
+                        title-position="top">
+                    <div layout-align="start center" layout="column">
+                        <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}"
+                              decimals="0"></span>
+                        <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}"
+                              decimals="0"></span>
+                        <span class="md-title" countupto="10" options="{prefix:'End Caps : ', suffix:'%'}"
+                              decimals="0"></span>
+                    </div>
+                </widget>
             </div>
-        </widget>
-        <widget layout-margin flex palette-background="light-blue:600" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
-            <div layout-align="start center" layout="column">
-                <p class="md-display-1" countupto="21" decimals="0" options="{suffix:' Minutes'}"></p>
+            <div layout="column" layout-margin flex="60">
+                <widget layout-margin palette-background="blue:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
+                        subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top">
+                    <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
+                        <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
+                    </map>
+                </widget>
             </div>
-        </widget>
-        <widget layout-margin flex palette-background="light-blue:700"title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
-            <div layout-align="start center" layout="column" >
-                <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
-                <span class="md-title" countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}" decimals="0"></span>
-                <span class="md-title" countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}" decimals="0"></span>
+
+            <div layout="column" layout-margin flex="27">
+
+                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="user in users">
+                            <td class="col-md-2">{{user.name}}</td>
+                            <td class="col-md-2">{{user.age}}</td>
+                        </tr>
+                    </table>
+
+                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>age</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="user in users">
+                            <td class="col-md-2">{{user.name}}</td>
+                            <td class="col-md-2">{{user.age}}</td>
+                        </tr>
+                    </table>
+
+                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>age</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="user in users">
+                            <td class="col-md-2">{{user.name}}</td>
+                            <td class="col-md-2">{{user.age}}</td>
+                        </tr>
+                    </table>
             </div>
-        </widget>
-        <widget layout-margin flex palette-background="light-blue:800" title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top" >
-            <div layout-align="start center" layout="column">
-                <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}" decimals="0"></span>
-                <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}" decimals="0"></span>
-                <span class="md-title" countupto="10" options="{prefix:'End Caps : ', suffix:'%'}" decimals="0"></span>
-            </div>
-        </widget>
+        </div>
+
+
+        <!--  <widget  flex load-data-widget="{ social: 'app/stores/data/location.json' }" title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
+
+               <div gridster>
+                   <div ng-controller="StoreMap" gridster-item="item" >
+                       <map zoom="{{zoom}}" center="{{center}}">
+                           <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
+                           </shape>
+                       </map>
+                   </div>
+
+                   <div gridster-item="item" style="background-color: #FF00FF"></div>
+                   <div gridster-item="item" style="background-color: #E9DC51"></div>
+
+               </div>
+           </widget>-->
     </div>
-    <div layout="row" layout-sm="column" layout-margin>
-        <widget layout-margin palette-background="blue:500" title="DASHBOARDS.ANALYTICS.PAGEVIEWS" subtitle="DASHBOARDS.ANALYTICS.DATE"  title-position="top">
-            <map ng-controller="StoreMap" zoom="{{zoom}}" center="{{center}}" class="storeMap">
-                <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
-            </map>
-        </widget>
-    </div>
-
-   <!--  <widget  flex load-data-widget="{ social: 'app/stores/data/location.json' }" title="DASHBOARDS.ANALYTICS.SOCIAL" subtitle="DASHBOARDS.ANALYTICS.DATE" content-padding>
-
-          <div gridster>
-              <div ng-controller="StoreMap" gridster-item="item" >
-                  <map zoom="{{zoom}}" center="{{center}}">
-                      <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}">
-                      </shape>
-                  </map>
-              </div>
-
-              <div gridster-item="item" style="background-color: #FF00FF"></div>
-              <div gridster-item="item" style="background-color: #E9DC51"></div>
-
-          </div>
-      </widget>-->
-</div>
-    <md-tab-body>
+</md-tab-body>
 <!--
 <md-tab-body>
     <div layout="row" layout-sm="column">

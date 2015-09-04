@@ -13,7 +13,20 @@
  */
 angular.module('CoursaStores').
     controller('StoreMap', function ($scope) {
-        var storeMap = angular.element("#storeMap");
+
+        $scope.users = [
+            {name: "Moroni", age: 50},
+            {name: "Tiancum", age: 43},
+            {name: "Jacob", age: 27},
+            {name: "Nephi", age: 29},
+            {name: "Moroni", age: 50},
+            {name: "Tiancum", age: 43},
+            {name: "Jacob", age: 27},
+            {name: "Nephi", age: 29},
+            {name: "Tiancum", age: 43},
+            {name: "Jacob", age: 27},
+            {name: "Enos", age: 34}];
+
         $scope.center = "37.304588, -121.865787";
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png'
