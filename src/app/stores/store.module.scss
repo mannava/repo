@@ -62,63 +62,8 @@ div[ng-controller=StoreMap] #panel {
   }
 }
 
-.ng-table {
-  border: 1px solid #000;
-}
-
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-  background-color: grey;
-}
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: lightblue;
-}
-
-table {
-  width: 50%;
-  margin-top: 3px;
-}
-
-thead, tbody, tr, td, th { display: block; }
-
-tr:after {
-  content: ' ';
-  display: block;
-  visibility: hidden;
-  clear: both;
-}
-
-thead th {
-  height: 5%;
-
-  /*text-align: left;*/
-}
-
-tbody {
-  height: 155px;
-
-  overflow-y: auto;
-}
-
-thead {
-  /* fallback */
-}
-
-
-tbody td, thead th {
-  width: 15%;
-  float: left;
-}
-
-
 .storeGrid {
   width: 400px;
   height: 250px;
   margin: 3px;
-}
-
-[flex-grow] {
-  box-sizing: border-box;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
