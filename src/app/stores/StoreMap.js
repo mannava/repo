@@ -14,33 +14,52 @@
 angular.module('CoursaStores').
     controller('StoreMap', function ($scope) {
 
-        $scope.users = [
-            {name: "Moroni", age: 50},
-            {name: "Tiancum", age: 43},
-            {name: "Jacob", age: 27},
-            {name: "Nephi", age: 29},
-            {name: "Moroni", age: 50},
-            {name: "Tiancum", age: 43},
-            {name: "Jacob", age: 27},
-            {name: "Nephi", age: 29},
-            {name: "Tiancum", age: 43},
-            {name: "Jacob", age: 27},
-            {name: "Enos", age: 34}];
+        $scope.topTenSeclections = [
+            {
+                "ID": "1",
+                "SKU": "Pillows",
+                "Description":"temper pedic",
+                "Dwell time":"30 sec"
+            }]
+
+        $scope.bottomTenMissedSeclections = [
+            {
+                "ID": "1",
+                "SKU": "Photo Cases",
+                "Description":"frames",
+                "Dwell time":"18 sec"
+            }
+        ]
+
+        $scope.topTenMissedConversions = [
+            {
+                "ID": "1",
+                "SKU": "Waffles",
+                "Description":"Frozen",
+                "Dwell time":"34 sec"
+            }
+        ]
 
         $scope.center = "37.304588, -121.865787";
         $scope.zoom = 19;
-        $scope.imgUrl = 'app/stores/Target_SJ_overlay.png'
+        $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
+        $scope.map;
 
         var heatmap;
         $scope.$on('mapInitialized', function(event, map) {
+            $scope.map = map;
             heatmap = new google.maps.visualization.HeatmapLayer({
                 data: $scope.getPoints(),
                 map: map
             });
         });
 
-
+        google.maps.event.addDomListener(window, "resize", function() {
+            google.maps.event.trigger($scope.map, "resize");
+            var latLong  = $scope.center .split(",")
+            $scope.map.setCenter(new google.maps.LatLng(latLong[0], latLong[1]));
+        });
 
         $scope.getPoints = function () {
             var i = 0, lat = 0, lng = 0, wt = 0, arr = [], obj;

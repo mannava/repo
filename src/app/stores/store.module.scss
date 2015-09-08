@@ -33,20 +33,6 @@
   }
 }
 
-/*div[ng-controller=StoreMap] {
-  position: relative;
-}
-div[ng-controller=StoreMap] #panel {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  margin-left: -90px;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-}*/
-
 div[ng-controller=StoreMap] {
   position: relative;
 }
@@ -121,4 +107,18 @@ thead {
 tbody td, thead th {
   width: 15%;
   float: left;
+}
+
+
+.storeGrid {
+  width: 400px;
+  height: 250px;
+  margin: 3px;
+}
+
+[flex-grow] {
+  box-sizing: border-box;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }

@@ -1,9 +1,9 @@
 <md-tab-body ng-controller="StoreMap">
-    <div class="dashboard-container overlay-10 padded-content-page">
+    <div class="dashboard-container overlay-10 padded-content-page" flex>
 
-        <div layout="row" layout-margin>
-            <div layout="column" layout-margin>
-                <widget layout-margin flex palette-background="orange:400"
+        <div layout="row"  flex>
+            <div layout="column" layout-margin layout-sm="column">
+                <widget layout-margin palette-background="orange:100"
                         title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="20" options="{prefix:'Max : '}"
@@ -12,14 +12,14 @@
                               decimals="0"></span>
                     </div>
                 </widget>
-                <widget layout-margin flex palette-background="orange:500"
+                <widget layout-margin palette-background="orange:200"
                         title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="40" options="{suffix:'%'}"
                           decimals="0"></span>
                      </div>
                 </widget>
-                <widget layout-margin flex palette-background="orange:600"
+                <widget layout-margin palette-background="orange:300"
                         title="DASHBOARDS.ANALYTICS.PRODUCT_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}"
@@ -30,9 +30,9 @@
                               decimals="0"></span>
                     </div>
                 </widget>
-                <widget layout-margin flex palette-background="orange:700" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
+                <widget layout-margin palette-background="orange:300" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
                         title-position="top">
-                    <div layout-align="start center" layout="column">
+                    <div layout-align="start center" layout="column" layout-margin>
                         <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}"
                               decimals="0"></span>
                         <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}"
@@ -42,56 +42,21 @@
                     </div>
                 </widget>
             </div>
-            <div layout="column" layout-margin flex="60">
-                <widget layout-margin palette-background="blue:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
+            <div layout="column" layout-margin flex>
+                <widget layout-margin palette-background="white:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
                         subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top">
                     <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
                     </map>
                 </widget>
             </div>
+            <div layout="column" layout-margin flex>
 
-            <div layout="column" layout-margin flex="27">
-
-                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                        </tr>
-                        </thead>
-                        <tr ng-repeat="user in users">
-                            <td class="col-md-2">{{user.name}}</td>
-                            <td class="col-md-2">{{user.age}}</td>
-                        </tr>
-                    </table>
-
-                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
-                        <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>age</th>
-                        </tr>
-                        </thead>
-                        <tr ng-repeat="user in users">
-                            <td class="col-md-2">{{user.name}}</td>
-                            <td class="col-md-2">{{user.age}}</td>
-                        </tr>
-                    </table>
-
-                    <table ng-table class="table table-striped table-hover table-condensed table-responsive">
-                        <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>age</th>
-                        </tr>
-                        </thead>
-                        <tr ng-repeat="user in users">
-                            <td class="col-md-2">{{user.name}}</td>
-                            <td class="col-md-2">{{user.age}}</td>
-                        </tr>
-                    </table>
+                <div ui-grid="{ data: topTenSeclections }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
+                <div ui-grid="{ data: bottomTenMissedSeclections }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
+                <div ui-grid="{ data: topTenMissedConversions }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
             </div>
+
         </div>
 
 
