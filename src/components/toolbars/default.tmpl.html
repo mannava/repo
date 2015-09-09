@@ -4,7 +4,7 @@
     </md-button>
     <h2 flex breadcrumbs="menu"></h2>
 
-    <md-menu>
+    <!--<md-menu>
         <md-button class="md-icon-button" aria-label="language" ng-click="$mdOpenMenu()" aria-label="change language">
             <md-icon md-font-icon="icon-language"></md-icon>
         </md-button>
@@ -13,16 +13,16 @@
                 <md-button ng-click="switchLanguage(language.key)" translate="{{::language.name}}" aria-label="{{::language.name}}"></md-button>
             </md-menu-item>
         </md-menu-content>
-    </md-menu>
+    </md-menu>-->
 
-    <md-button class="md-icon-button toolbar-button animated" ng-click="toggleNotificationsTab(0)" aria-label="side navigation">
+  <!--  <md-button class="md-icon-button toolbar-button animated" ng-click="toggleNotificationsTab(0)" aria-label="side navigation">
         <md-icon md-font-icon="icon-email"></md-icon>
         <span class="toolbar-button-badge animated" theme-background="accent" ng-class="{'toolbar-button-badge-new':emailNew}">5</span>
-    </md-button>
+    </md-button>-->
 
     <md-button class="md-icon-button toolbar-button" ng-click="toggleNotificationsTab(1)">
-        <md-icon md-font-icon="fa fa-bell-o"></md-icon>
-        <span class="toolbar-button-badge" theme-background="accent">2</span>
+        <md-icon md-font-icon="fa fa-filter"></md-icon>
+        <!--<span class="toolbar-button-badge" theme-background="accent">2</span>-->
     </md-button>
 
     <md-menu>

@@ -21,7 +21,7 @@ angular.module('CoursaStores', [])
 .run(function(SideMenu) {
     SideMenu.addMenu({
         name: 'MENU.STORES.STORES',
-        icon: 'icon-home',
+        icon: 'icon-shopping-cart',
         type: 'dropdown',
         priority: 2.1,
         children: [{

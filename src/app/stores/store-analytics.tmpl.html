@@ -1,4 +1,4 @@
-<md-tab-body ng-controller="StoreMap">
+<md-tab-body ng-controller="store-map-controller">
     <div class="dashboard-container overlay-10 padded-content-page" flex>
 
         <div layout="row"  flex>
@@ -52,9 +52,9 @@
             </div>
             <div layout="column" layout-margin flex>
 
-                <div ui-grid="{ data: topTenSeclections }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
-                <div ui-grid="{ data: bottomTenMissedSeclections }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
-                <div ui-grid="{ data: topTenMissedConversions }" class="storeGrid" ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping></div>
+                <div ui-grid="{ data: topTenSeclections }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
+                <div ui-grid="{ data: bottomTenMissedSeclections }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
+                <div ui-grid="{ data: topTenMissedConversions }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
             </div>
 
         </div>
