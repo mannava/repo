@@ -1,9 +1,9 @@
 <md-tab-body ng-controller="store-map-controller">
     <div class="dashboard-container overlay-10 padded-content-page" flex>
 
-        <div layout="row"  flex>
+        <div layout="row" flex>
             <div layout="column" layout-margin layout-sm="column">
-                <widget layout-margin palette-background="orange:100"
+                <widget layout-margin palette-background="light-blue:500"
                         title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="20" options="{prefix:'Max : '}"
@@ -12,14 +12,14 @@
                               decimals="0"></span>
                     </div>
                 </widget>
-                <widget layout-margin palette-background="orange:200"
+                <widget layout-margin palette-background="light-blue:600"
                         title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="40" options="{suffix:'%'}"
-                          decimals="0"></span>
-                     </div>
+                              decimals="0"></span>
+                    </div>
                 </widget>
-                <widget layout-margin palette-background="orange:300"
+                <widget layout-margin palette-background="light-blue:700"
                         title="DASHBOARDS.ANALYTICS.PRODUCT_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
                         <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}"
@@ -30,7 +30,7 @@
                               decimals="0"></span>
                     </div>
                 </widget>
-                <widget layout-margin palette-background="orange:300" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
+                <widget layout-margin palette-background="light-blue:800" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
                         title-position="top">
                     <div layout-align="start center" layout="column" layout-margin>
                         <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}"
@@ -50,12 +50,31 @@
                     </map>
                 </widget>
             </div>
-            <div layout="column" layout-margin flex>
+            <div layout="column" layout-margin flex ng-controller="store-grid-controller">
+                <div class="ui-grid-top-panel gridHeader">Top 10 Trafficked Product
+                    <div ui-grid="topTenSeclections" class="storeGrid"  ui-grid-auto-resize ui-grid-resize-columns></div>
+                </div>
+                <div class="ui-grid-top-panel gridHeader">Bottom 10 Trafficked Product
+                    <div ui-grid="bottomTenMissedSeclections" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns></div>
 
-                <div ui-grid="{ data: topTenSeclections }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
-                <div ui-grid="{ data: bottomTenMissedSeclections }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
-                <div ui-grid="{ data: topTenMissedConversions }" class="storeGrid" ui-grid-auto-resize ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-importer ui-grid-exporter></div>
+                </div>
+                <div class="ui-grid-top-panel gridHeader">Top 10 Missed Conversion Categories
+                    <div ui-grid="topTenMissedConversions" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns></div>
+                </div>
             </div>
+
+            <!--<div layout="column" layout-margin flex ng-controller="store-grid-controller">
+                <div class="ui-grid-top-panel gridHeader">Top 10 Trafficked Product
+                    <div ui-grid="{data:topTenSeclections}" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns ></div>
+                </div>
+                <div class="ui-grid-top-panel gridHeader">Bottom 10 Trafficked Product
+                    <div ui-grid="{data:bottomTenMissedSeclections}" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns></div>
+
+                </div>
+                <div class="ui-grid-top-panel gridHeader">Top 10 Missed Conversion Categories
+                    <div ui-grid="{data:topTenMissedConversions}" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns></div>
+                </div>
+            </div>-->
 
         </div>
 

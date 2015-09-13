@@ -62,8 +62,25 @@ div[ng-controller=StoreMap] #panel {
   }
 }
 
+
 .storeGrid {
   width: 100%;
-  height: 250px;
-  margin: 3px;
+  height: 210px;
+}
+
+.storeGrid .ui-grid-render-container-body .ui-grid-header-cell,
+.storeGrid .ui-grid-render-container-left .ui-grid-header-cell,
+.storeGrid .ui-grid-row,
+.storeGrid .ui-grid-cell,
+.storeGrid .ui-grid-cell .ui-grid-vertical-bar {
+  font-weight: 400;
+  font-size: small;
+}
+
+
+.gridHeader{
+    margin: 3px;
+    text-align: center;
+    font-weight: 500;
+    font-size:x-small;
 }

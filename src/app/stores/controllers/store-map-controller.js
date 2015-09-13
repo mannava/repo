@@ -14,20 +14,6 @@
 angular.module('CoursaStores').
     controller('store-map-controller', function ($scope, storeService) {
 
-        var topTen = storeService.getStoreData();
-
-        topTen.then(function (res) {
-                var topTen = res.data.coursa_store_summary;
-                console.log(topTen);
-                $scope.topTenSeclections = topTen.Top_10_Trafficked_Items;
-                $scope.topTenMissedConversions= topTen.Top_10_Missed_Conversions;
-                $scope.bottomTenMissedSeclections  = topTen.Bottom_10_Trafficked_Items;
-
-        }
-        , function (err) {
-
-        });
-
         $scope.center = "37.304588, -121.865787";
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
