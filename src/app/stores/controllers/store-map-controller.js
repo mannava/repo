@@ -60,7 +60,6 @@ angular.module('CoursaStores').
         });
 
         $scope.$on('selectedGridRows', function (event, data) {
-            console.log(data, "data", data.img);
             $scope.markers = data.markers;
             $scope.img = data.img;
         });
