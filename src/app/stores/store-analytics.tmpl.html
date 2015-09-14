@@ -45,21 +45,22 @@
             <div layout="column" layout-margin flex>
                 <widget layout-margin palette-background="white:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
                         subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top">
-                    <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
+                   <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
-                    </map>
+                       <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong}}" ></marker>
+                   </map>
                 </widget>
             </div>
             <div layout="column" layout-margin flex ng-controller="store-grid-controller">
-                <div class="ui-grid-top-panel gridHeader">Top 10 Trafficked Product
-                    <div ui-grid="topTenSeclections" class="storeGrid"  ui-grid-auto-resize ui-grid-resize-columns></div>
+                <div class="ui-grid-top-panel gridHeader"> <label class="topHeaderLbl"> Top 10 Trafficked Product</label>
+                    <div ui-grid="topTenSeclections" class="storeGrid"  ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection></div>
                 </div>
-                <div class="ui-grid-top-panel gridHeader">Bottom 10 Trafficked Product
-                    <div ui-grid="bottomTenMissedSeclections" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns></div>
+                <div class="ui-grid-top-panel gridHeader"><label class="topHeaderLbl"> Bottom 10 Trafficked Product</label>
+                    <div ui-grid="bottomTenMissedSeclections" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection></div>
 
                 </div>
-                <div class="ui-grid-top-panel gridHeader">Top 10 Missed Conversion Categories
-                    <div ui-grid="topTenMissedConversions" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns></div>
+                <div class="ui-grid-top-panel gridHeader"><label class="topHeaderLbl">Top 10 Missed Conversion Categories</label>
+                    <div ui-grid="topTenMissedConversions" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection></div>
                 </div>
             </div>
 

@@ -79,8 +79,21 @@ div[ng-controller=StoreMap] #panel {
 
 
 .gridHeader{
-    margin: 3px;
     text-align: center;
     font-weight: 500;
     font-size:x-small;
+}
+
+.ui-grid-row {
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+.ui-grid-cell {
+  background-color: transparent !important;
+}
+.ui-grid-row-selected {
+  background-color: #c9dde1;
+}
+.topHeaderLbl{
+  color: #0095dd;
+  font-size: small;
 }

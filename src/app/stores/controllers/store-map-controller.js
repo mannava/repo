@@ -19,6 +19,7 @@ angular.module('CoursaStores').
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
         $scope.map;
+        $scope.markers = {};
 
         var heatmap;
         $scope.$on('mapInitialized', function (event, map) {
@@ -57,6 +58,13 @@ angular.module('CoursaStores').
         }, function (error) {
 
         });
+
+        $scope.$on('selectedGridRows', function (event, data) {
+            console.log(data, "data", data.img);
+            $scope.markers = data.markers;
+            $scope.img = data.img;
+        });
+
 
 
     });

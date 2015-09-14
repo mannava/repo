@@ -26,34 +26,34 @@
         "Dwell Time": "15 sec",
         "product_name": "Chocolates",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304706, -121.865879"
       },
       {
         "Order": "2",
         "Dwell Time": "31 sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304362, -121.865750"
       },
       {
         "Order": "3",
         "Dwell Time": "23 sec",
         "product_name": "Chills",
         "product_category": "food",
-        "latlong": "-121.866056, 37.304164"
+        "latlong": "37.304623, -121.865641"
       },{
         "Order": "4",
         "Dwell Time": "15 sec",
         "product_name": "Shorts",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304263, -121.865897"
       },
       {
         "Order": "5",
         "Dwell Time": "44  sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304370, -121.865571"
       },
       {
         "Order": "6",
@@ -96,34 +96,34 @@
         "Dwell Time": "12 sec",
         "product_name": "Shorts",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304690, -121.865223"
       },
       {
         "Order": "2",
         "Dwell Time": "31 sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304648, -121.865174"
       },
       {
         "Order": "3",
         "Dwell Time": "13 sec",
         "product_name": "Chills",
         "product_category": "food",
-        "latlong": "-121.866056, 37.304164"
+        "latlong": "37.304676, -121.865959"
       },{
         "Order": "4",
         "Dwell Time": "15 sec",
         "product_name": "Shorts",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304707, -121.865474"
       },
       {
         "Order": "5",
         "Dwell Time": "44  sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304793, -121.865355"
       },
       {
         "Order": "6",
@@ -167,38 +167,37 @@
     "Top_10_Missed_Conversions": [
       {
         "Order": "1",
-        "Dwell Time": "43 sec",
+        "Dwell Time": "12 sec",
         "product_name": "Shorts",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304690, -121.865223"
       },
       {
         "Order": "2",
-        "Dwell Time": "23 sec",
+        "Dwell Time": "31 sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304648, -121.865174"
       },
       {
         "Order": "3",
-        "Dwell Time": "3 sec",
+        "Dwell Time": "13 sec",
         "product_name": "Chills",
         "product_category": "food",
-        "latlong": "-121.866056, 37.304164"
-      },
-      {
+        "latlong": "37.304676, -121.865959"
+      },{
         "Order": "4",
-        "Dwell Time": "5 sec",
+        "Dwell Time": "15 sec",
         "product_name": "Shorts",
         "product_category": "Cloths",
-        "latlong": "-121.866050, 37.304163"
+        "latlong": "37.304707, -121.865474"
       },
       {
         "Order": "5",
-        "Dwell Time": "16 sec",
+        "Dwell Time": "44  sec",
         "product_name": "Watches",
         "product_category": "electronics",
-        "latlong": "-121.866043, 37.304154"
+        "latlong": "37.304793, -121.865355"
       },
       {
         "Order": "6",
