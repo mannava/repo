@@ -2,7 +2,7 @@
 
 angular.module('Coursa', [
     // inject angular modules
-    'ngAria', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngMaterial','ngMap','ngTable','ui.bootstrap', 'gm.datepickerMultiSelect',
+    'ngAria', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngMaterial','ngMap','ngTable','ui.bootstrap',
     // inject extra 3rd party angular modules
     'ui.router', 'pascalprecht.translate', 'LocalStorageModule', 'googlechart', 'chart.js', 'angularMoment', 'uiGmapgoogle-maps', 'md.data.table','gridster',
     // UI grid
