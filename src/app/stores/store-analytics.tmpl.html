@@ -46,7 +46,7 @@
                 <widget layout-margin palette-background="white:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
                         subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top">
 
-
+                    <div date-range start="start" end="end"></div>
                     <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
                        <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong}}" ></marker>
