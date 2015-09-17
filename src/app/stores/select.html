@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+</head>
+<body>
+<div></div>
+    By Month : <select class="months" multiple="multiple" style="width: 200px;">
+    <option value="Jan">Jan</option>
+    <option value="Feb">Feb</option>
+    <option value="Mar">Mar</option>
+    <option value="Apr">Apr</option>
+    <option value="May">May</option>
+    <option value="Jun">Jun</option>
+    <option value="Jul">Jul</option>
+    <option value="Aug">Aug</option>
+    <option value="Sep">Sep</option>
+    <option value="Oct">Oct</option>
+    <option value="Nov">Nov</option>
+    <option value="Dec">Dec</option>
+</select>
+</div>
+<div>
+    By Week : <select class="weeks" multiple="multiple" style="width: 200px;">
+    <option value="Sun">Sun</option>
+    <option value="Mon">Mon</option>
+    <option value="Tue">Tue</option>
+    <option value="Wed">Wed</option>
+    <option value="Thu">Thu</option>
+    <option value="Fri">Fri</option>
+    <option value="Sat">Sat</option>
+    <option value="Sun">Sun</option>
+</select>
+</div>
+<div>
+    By Time : <select class="time" multiple="multiple" style="width: 200px;">
+    <option value="12 AM - 3 AM">12 AM - 3 AM</option>
+    <option value="3 AM - 6 AM">3 AM - 6 AM</option>
+    <option value="6 AM - 9 AM">6 AM - 9 AM</option>
+    <option value="9 AM - 12 PM">9 AM - 12 PM</option>
+    <option value="12 PM -  3 PM">12 PM - 3 PM</option>
+    <option value="3 PM  - 6 PM">3 PM - 6 PM</option>
+    <option value="6 PM - 9 PM">6 PM - 9 PM</option>
+    <option value="9 PM - 12 PM">9 PM - 12 PM</option>
+</select>
+</div>
+
+<script>
+    $(".months").select2();
+    $(".weeks").select2();
+    $(".time").select2();
+</script>
+</body>
+</html>
