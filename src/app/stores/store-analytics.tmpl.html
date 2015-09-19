@@ -6,10 +6,12 @@
                 <widget layout-margin palette-background="light-blue:500"
                         title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top">
                     <div layout-align="start center" layout="column">
-                        <span class="md-title" countupto="20" options="{prefix:'Max : '}"
-                              decimals="0"></span>
-                        <span class="md-title" countupto="2" options="{prefix:'Min : '}"
-                              decimals="0"></span>
+
+
+                        <span class="md-title" countupto="" options="{prefix:'Max : '}"
+                              decimals="0">{{min_checkout}}</span>
+                        <span class="md-title" countupto="" options="{prefix:'Min : '}"
+                              decimals="0">{{max_checkout}}</span>
                     </div>
                 </widget>
                 <widget layout-margin palette-background="light-blue:600"

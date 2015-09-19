@@ -14,7 +14,6 @@
 angular.module('CoursaStores').
     controller('store-map-controller', function ($scope, storeService) {
 
-        //$scope.center = "37.304588, -121.865787";
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
@@ -30,6 +29,11 @@ angular.module('CoursaStores').
             var lng = ((lngs[0] + lngs[1])/2).toFixed(6);
             $scope.imgBounds =[[lngs[0], lats[0]], [lngs[1], lats[1]]];
             $scope.center = lng +", "+lat;
+            $scope.store_coverage = $scope.storeSummary.coursa_store_summary.store_coverage;
+            $scope.product_coversion = $scope.storeSummary.coursa_store_summary.product_conversion;
+            $scope.customer_conversion = $scope.storeSummary.coursa_store_summary.customer_conversion
+            $scope.max_checkout = $scope.storeSummary.coursa_store_summary.max_checkout_time;
+            $scope.min_checkout = $scope.storeSummary.coursa_store_summary.min_checkout_time;
             //$scope.imgUrl = res.data.coursa_store_header.store_map;
         });
 
@@ -72,14 +76,8 @@ angular.module('CoursaStores').
             $scope.map.setCenter(new google.maps.LatLng(latLong[0], latLong[1]));
         });
 
-
-
-
         $scope.$on('selectedGridRows', function (event, data) {
             $scope.markers = data.markers;
             $scope.img = data.img;
         });
-
-
-
     });
