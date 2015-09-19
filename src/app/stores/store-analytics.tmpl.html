@@ -49,7 +49,7 @@
                     
                     <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
-                       <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong}}" ></marker>
+                       <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong.substr(1,marker.latlong.length-2)}}" ></marker>
                    </map>
                 </widget>
             </div>

@@ -18,20 +18,29 @@ angular.module('CoursaStores').
     controller('store-grid-controller', function ($scope, storeService) {
 
         var topTen = storeService.getStoreData();
+
+
         $scope.topTenSeclections = {};
         $scope.bottomTenMissedSeclections = {};
         $scope.topTenMissedConversions = {};
 
-        topTen.then(function (res) {
-                var topTen = res.data.coursa_store_summary;
-                $scope.topTenSeclections.data = topTen.Top_10_Trafficked_Items;
-                $scope.bottomTenMissedSeclections.data = topTen.Bottom_10_Trafficked_Items;
-                $scope.topTenMissedConversions.data = topTen.Top_10_Missed_Conversions;
+        $scope.topTenSeclections = storeService.geConversions("TOP_PC");
+        $scope.bottomTenMissedSeclections = storeService.geConversions("MC");
+        $scope.topTenMissedConversions = storeService.geConversions("LOW_PC");
 
-            }
-            , function (err) {
+        $scope.topTenSeclections.then(function(res){
+            $scope.topTenSeclections.data = res.data.coursa_product_list;
+        });
 
-            });
+        $scope.bottomTenMissedSeclections.then(function(res){
+            $scope.bottomTenMissedSeclections.data = res.data.coursa_product_list;
+        });
+
+        $scope.topTenMissedConversions.then(function(res){
+            $scope.topTenMissedConversions.data = res.data.coursa_product_list;
+        });
+
+
 
         //Top 10 Trafficked Product
         $scope.topTenSeclections = {
@@ -71,6 +80,7 @@ angular.module('CoursaStores').
                 $scope.markers = gridApi.selection.getSelectedRows();
                 var obj = {};
                 obj.markers = $scope.markers;
+                console.log($scope.markers[0].latlong)
                 obj.img = "http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png";
                 $scope.$emit('selectedGridRows',obj);
             });
@@ -99,27 +109,30 @@ angular.module('CoursaStores').
         }
 
         $scope.topTenSeclections.columnDefs = [
-            {name: 'Order', width: '10%'},
-            {name: 'Dwell Time', width: '20%'},
-            {name: 'product_name', width: '20%'},
-            {name: 'product_category', width: '25%'},
-            {name: 'latlong', width: '25%'}
+            {name: 'order', width: '10%'},
+            {name: 'time', width: '15%'},
+            {name: 'sku', width: '15%'},
+            {name: 'product_category', width: '30%'},
+            {name: 'product_name', width: '30%'},
+            {name: 'latlong', width: '0%'}
         ];
 
         $scope.bottomTenMissedSeclections.columnDefs = [
-            {name: 'Order', width: '10%'},
-            {name: 'Dwell Time', width: '20%'},
-            {name: 'product_name', width: '20%'},
-            {name: 'product_category', width: '25%'},
-            {name: 'latlong', width: '25%'}
+            {name: 'order', width: '10%'},
+            {name: 'time', width: '15%'},
+            {name: 'sku', width: '15%'},
+            {name: 'product_category', width: '30%'},
+            {name: 'product_name', width: '30%'},
+            {name: 'latlong', width: '0%'}
         ];
 
         $scope.topTenMissedConversions.columnDefs = [
-            {name: 'Order', width: '10%'},
-            {name: 'Dwell Time', width: '20%'},
-            {name: 'product_name', width: '20%'},
-            {name: 'product_category', width: '25%'},
-            {name: 'latlong', width: '25%'}
+            {name: 'order', width: '10%'},
+            {name: 'time', width: '15%'},
+            {name: 'sku', width: '15%'},
+            {name: 'product_category', width: '30%'},
+            {name: 'product_name', width: '30%'},
+            {name: 'latlong', width: '0%'}
         ];
 
     });

@@ -23,12 +23,36 @@ angular.module('CoursaStores').
 
         var heatmap;
         $scope.$on('mapInitialized', function (event, map) {
-            $scope.map = map;
-            heatmap = new google.maps.visualization.HeatmapLayer({
-                data: $scope.getPoints(),
-                map: map
+            var mapData = storeService.getHeatMapData();
+            mapData.then(function (res) {
+                $scope.heatMapData = res.data.storeheatmap;
+                $scope.map = map;
+                heatmap = new google.maps.visualization.HeatmapLayer({
+                    data: $scope.getPoints(),
+                    map: map
+                });
+
+            }, function (error) {
+
             });
         });
+
+        $scope.getPoints = function () {
+            var i = 0, lat = 0, lng = 0, wt = 0, arr = [], obj, temp;
+
+            for (var i = 0; i < $scope.heatMapData.length; i++) {
+                temp = $scope.heatMapData[i].split(",");
+                lat = temp[0];
+                lng = temp[1];
+                wt = temp[2];
+                if (wt >= 1) {
+                    var loc = new google.maps.LatLng(lat, lng);
+                    obj = {location: loc, weight: wt};
+                    arr.push(obj);
+                }
+            }
+            return arr;
+        }
 
         google.maps.event.addDomListener(window, "resize", function () {
             google.maps.event.trigger($scope.map, "resize");
@@ -37,27 +61,7 @@ angular.module('CoursaStores').
         });
 
 
-        var mapData = storeService.getHeatMapData();
-        mapData.then(function (res) {
-            var heatMapData = res.data;
-            $scope.getPoints = function () {
-                var i = 0, lat = 0, lng = 0, wt = 0, arr = [], obj;
 
-                for (var i = 0; i < heatMapData.length; i++) {
-                    lat = heatMapData[i][0];
-                    lng = heatMapData[i][1];
-                    wt = heatMapData[i][2];
-                    if (wt >= 1) {
-                        var loc = new google.maps.LatLng(lat, lng);
-                        obj = {location: loc, weight: wt};
-                        arr.push(obj);
-                    }
-                }
-                return arr;
-            }
-        }, function (error) {
-
-        });
 
         $scope.$on('selectedGridRows', function (event, data) {
             $scope.markers = data.markers;
