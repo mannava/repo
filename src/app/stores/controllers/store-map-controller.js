@@ -14,12 +14,24 @@
 angular.module('CoursaStores').
     controller('store-map-controller', function ($scope, storeService) {
 
-        $scope.center = "37.304588, -121.865787";
+        //$scope.center = "37.304588, -121.865787";
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
         $scope.map;
         $scope.markers = {};
+
+        var summary = storeService.getStoreSummary();
+        summary.then(function(res){
+            $scope.storeSummary = res.data;
+            var lats = JSON.parse($scope.storeSummary.coursa_store_header.lat);
+            var lngs = JSON.parse($scope.storeSummary.coursa_store_header.lng);
+            var lat = ((lats[0] + lats[1])/2).toFixed(6);
+            var lng = ((lngs[0] + lngs[1])/2).toFixed(6);
+            $scope.imgBounds =[[lngs[0], lats[0]], [lngs[1], lats[1]]];
+            $scope.center = lng +", "+lat;
+            //$scope.imgUrl = res.data.coursa_store_header.store_map;
+        });
 
         var heatmap;
         $scope.$on('mapInitialized', function (event, map) {

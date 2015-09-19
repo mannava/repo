@@ -17,9 +17,6 @@
 angular.module('CoursaStores').
     controller('store-grid-controller', function ($scope, storeService) {
 
-        var topTen = storeService.getStoreData();
-
-
         $scope.topTenSeclections = {};
         $scope.bottomTenMissedSeclections = {};
         $scope.topTenMissedConversions = {};

@@ -20,9 +20,9 @@ angular.module('CoursaStores').factory('storeService', function($http) {
         return $http.get('http://52.3.65.137:8090/coursaretail/getstoreproductsummary/'+topConv+'/10/2281/1440349200/1440396000');
     }
 
-    store.getStoreData = function() {
-        return storeData;
-    };
+    store.getStoreSummary = function(){
+        return $http.get("http://52.3.65.137:8090/coursaretail/getstoresummary/2281/1440349200/1440396000");
+    }
 
     return store;
 
