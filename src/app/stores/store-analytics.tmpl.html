@@ -6,41 +6,30 @@
                 <widget layout-margin palette-background="light-blue:500"
                         title="DASHBOARDS.ANALYTICS.DURATION_CHECKOUT" title-position="top">
                     <div layout-align="start center" layout="column">
-
-
-                        <span class="md-title" countupto="" options="{prefix:'Max : '}"
-                              decimals="0">{{min_checkout}}</span>
-                        <span class="md-title" countupto="" options="{prefix:'Min : '}"
-                              decimals="0">{{max_checkout}}</span>
+                        <span class="md-title">Min :{{min_checkout}}</span>
+                        <span class="md-title">Max :{{max_checkout}}</span>
                     </div>
                 </widget>
                 <widget layout-margin palette-background="light-blue:600"
                         title="DASHBOARDS.ANALYTICS.CUSTOMER_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
-                        <span class="md-title" countupto="40" options="{suffix:'%'}"
-                              decimals="0"></span>
+                        <span class="md-title">{{customer_conversion}}</span>
                     </div>
                 </widget>
                 <widget layout-margin palette-background="light-blue:700"
                         title="DASHBOARDS.ANALYTICS.PRODUCT_CONVERSION" title-position="top">
                     <div layout-align="start center" layout="column">
-                        <span class="md-title" countupto="40" options="{prefix:'Overall : ', suffix:'%'}"
-                              decimals="0"></span>
-                        <span class="md-title" countupto="20" options="{prefix:'Short Dwell : ', suffix:'%'}"
-                              decimals="0"></span>
-                        <span class="md-title" countupto="10" options="{prefix:'Long Dwell : ', suffix:'%'}"
-                              decimals="0"></span>
+                        <span class="md-title">Overall : {{product_conversion.overall}}</span>
+                        <span class="md-title">Short Dwell : {{product_conversion.short_dwell}}</span>
+                        <span class="md-title">Long Dwell : {{product_conversion.long_dwell}}</span>
                     </div>
                 </widget>
                 <widget layout-margin palette-background="light-blue:800" title="DASHBOARDS.ANALYTICS.STORE_COVERAGE"
                         title-position="top">
                     <div layout-align="start center" layout="column" layout-margin>
-                        <span class="md-title" countupto="20" options="{prefix:'Overall : ', suffix:'%'}"
-                              decimals="0"></span>
-                        <span class="md-title" countupto="30" options="{prefix:'Aisles : ', suffix:'%'}"
-                              decimals="0"></span>
-                        <span class="md-title" countupto="10" options="{prefix:'End Caps : ', suffix:'%'}"
-                              decimals="0"></span>
+                        <span class="md-title">Overall : {{store_coverage.overall}}</span>
+                        <span class="md-title">Aisles : {{store_coverage.aisles}}</span>
+                        <span class="md-title">EndCaps : {{store_coverage.end_caps}}</span>
                     </div>
                 </widget>
             </div>
@@ -51,7 +40,7 @@
                     
                     <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
-                       <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong.substr(1,marker.latlong.length-2)}}" ></marker>
+                       <marker ng-repeat="marker in markers" icon="{{img}}"  title="{{marker.product_category}}" position="{{marker.latlong}}" ></marker>
                    </map>
                 </widget>
             </div>

@@ -55,6 +55,15 @@ angular.module('CoursaStores').
             gridApi.selection.on.rowSelectionChanged($scope, function (rows) {
                 $scope.markers = gridApi.selection.getSelectedRows();
                 var obj = {};
+                // remove following code when latlongs flipped
+
+                for(var i=0;i<$scope.markers.length;i++){
+                    var latLng = $scope.markers[i].latlong.split(",");
+                    var lat = latLng[0];
+                    var lng = latLng[1];
+
+                    $scope.markers[i].latlong =  lng +", "+lat;
+                }
                 obj.markers = $scope.markers;
                 $scope.$emit('selectedGridRows',obj);
             });
@@ -76,8 +85,16 @@ angular.module('CoursaStores').
             gridApi.selection.on.rowSelectionChanged($scope, function (rows) {
                 $scope.markers = gridApi.selection.getSelectedRows();
                 var obj = {};
+                // remove following code when latlongs flipped
+
+                for(var i=0;i<$scope.markers.length;i++){
+                    var latLng = $scope.markers[i].latlong.split(",");
+                    var lat = latLng[0];
+                    var lng = latLng[1];
+
+                    $scope.markers[i].latlong =  lng +", "+lat;
+                }
                 obj.markers = $scope.markers;
-                console.log($scope.markers[0].latlong)
                 obj.img = "http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png";
                 $scope.$emit('selectedGridRows',obj);
             });
@@ -99,6 +116,15 @@ angular.module('CoursaStores').
             gridApi.selection.on.rowSelectionChanged($scope, function (rows) {
                 $scope.markers = gridApi.selection.getSelectedRows();
                 var obj = {};
+                // remove following code when latlongs flipped
+
+                for(var i=0;i<$scope.markers.length;i++){
+                    var latLng = $scope.markers[i].latlong.split(",");
+                    var lat = latLng[0];
+                    var lng = latLng[1];
+
+                    $scope.markers[i].latlong =  lng +", "+lat;
+                }
                 obj.markers = $scope.markers;
                 obj.img = "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png";
                 $scope.$emit('selectedGridRows',obj);

@@ -23,18 +23,22 @@ angular.module('CoursaStores').
         var summary = storeService.getStoreSummary();
         summary.then(function(res){
             $scope.storeSummary = res.data;
+            $scope.imgUrl = res.data.coursa_store_header.store_map;
             var lats = JSON.parse($scope.storeSummary.coursa_store_header.lat);
             var lngs = JSON.parse($scope.storeSummary.coursa_store_header.lng);
             var lat = ((lats[0] + lats[1])/2).toFixed(6);
             var lng = ((lngs[0] + lngs[1])/2).toFixed(6);
-            $scope.imgBounds =[[lngs[0], lats[0]], [lngs[1], lats[1]]];
-            $scope.center = lng +", "+lat;
+            $scope.imgBounds =[[lats[0], lngs[0]], [lats[1], lngs[1]]];
+            $scope.center = lat +", "+lng;
             $scope.store_coverage = $scope.storeSummary.coursa_store_summary.store_coverage;
-            $scope.product_coversion = $scope.storeSummary.coursa_store_summary.product_conversion;
-            $scope.customer_conversion = $scope.storeSummary.coursa_store_summary.customer_conversion
+            $scope.product_conversion = $scope.storeSummary.coursa_store_summary.product_conversion;
+            $scope.customer_conversion = $scope.storeSummary.coursa_store_summary.customer_conversion;
+            console.log($scope.customer_conversion);
+            $scope.hell = $scope.product_conversion.overall.match(/\d+/)[0];
+
             $scope.max_checkout = $scope.storeSummary.coursa_store_summary.max_checkout_time;
             $scope.min_checkout = $scope.storeSummary.coursa_store_summary.min_checkout_time;
-            //$scope.imgUrl = res.data.coursa_store_header.store_map;
+
         });
 
         var heatmap;
@@ -78,6 +82,7 @@ angular.module('CoursaStores').
 
         $scope.$on('selectedGridRows', function (event, data) {
             $scope.markers = data.markers;
+            console.log($scope.markers);
             $scope.img = data.img;
         });
     });
