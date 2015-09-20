@@ -20,6 +20,16 @@ angular.module('CoursaStores').
         $scope.map;
         $scope.markers = {};
 
+        $scope.activeDate;
+        $scope.selectedDates = [new Date().setHours(0, 0, 0, 0)];
+        $scope.type = 'individual';
+
+        $scope.identity = angular.identity;
+
+        $scope.removeFromSelected = function(dt) {
+            $scope.selectedDates.splice($scope.selectedDates.indexOf(dt), 1);
+        }
+
         var summary = storeService.getStoreSummary();
         summary.then(function(res){
             $scope.storeSummary = res.data;
