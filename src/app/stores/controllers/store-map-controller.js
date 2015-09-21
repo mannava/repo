@@ -16,15 +16,18 @@ angular.module('CoursaStores').
 
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
+        $scope.center = "37.304588, -121.865787";
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
         $scope.map;
         $scope.markers = {};
         $scope.startDate, $scope.endDate;
         var mapData;
-
+        $scope.$on('mapInitialized', function (event, map) {
+            $scope.map = map;
+        });
 
         $rootScope.$on('selectedDates', function (event, data) {
-
+            console.log(data, "0", data[0], "last",data[data.length-1]);
             $scope.startDate = new Date(data[0]).toDateString();
             $scope.endDate = new Date(data[data.length-1]).toDateString();
             mapData = storeService.getHeatMapData(data[0], data[data.length-1]);
@@ -48,19 +51,17 @@ angular.module('CoursaStores').
             });
 
             var heatmap;
-            $scope.$on('mapInitialized', function (event, map) {
-                mapData.then(function (res) {
-                    $scope.heatMapData = res.data.storeheatmap;
-                    $scope.map = map;
-                    heatmap = new google.maps.visualization.HeatmapLayer({
-                        data: $scope.getPoints(),
-                        map: map
-                    });
 
-                }, function (error) {
-
+            mapData.then(function (res) {
+                $scope.heatMapData = res.data.storeheatmap;
+                heatmap = new google.maps.visualization.HeatmapLayer({
+                    data: $scope.getPoints(),
+                    map: $scope.map
                 });
-            })
+
+            }, function (error) {
+
+            });
 
             $scope.getPoints = function () {
                 var i = 0, lat = 0, lng = 0, wt = 0, arr = [], obj, temp;

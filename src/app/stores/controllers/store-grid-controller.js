@@ -22,6 +22,8 @@ angular.module('CoursaStores').
         $scope.topTenMissedConversions = {};
 
         $rootScope.$on('selectedDates', function (event, data) {
+            var d = new Date();
+            console.log(d.setUTCSeconds(data[0]));
             $scope.topTenSeclections = storeService.geConversions("TOP_PC", data[0], data[data.length-1]);
             $scope.bottomTenMissedSeclections = storeService.geConversions("MC", data[0], data[data.length-1]);
             $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", data[0], data[data.length-1]);
