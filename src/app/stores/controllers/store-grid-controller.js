@@ -25,17 +25,17 @@ angular.module('CoursaStores').
         $scope.bottomTenMissedSeclections = storeService.geConversions("MC");
         $scope.topTenMissedConversions = storeService.geConversions("LOW_PC");
 
-        $scope.topTenSeclections.then(function(res){
-            $scope.topTenSeclections.data = res.data.coursa_product_list;
-        });
+            /*$scope.topTenSeclections.then(function(res){
+                $scope.topTenSeclections.data = res.data.coursa_product_list;
+            });
 
-        $scope.bottomTenMissedSeclections.then(function(res){
-            $scope.bottomTenMissedSeclections.data = res.data.coursa_product_list;
-        });
+            $scope.bottomTenMissedSeclections.then(function(res){
+                $scope.bottomTenMissedSeclections.data = res.data.coursa_product_list;
+            });
 
-        $scope.topTenMissedConversions.then(function(res){
-            $scope.topTenMissedConversions.data = res.data.coursa_product_list;
-        });
+            $scope.topTenMissedConversions.then(function(res){
+                $scope.topTenMissedConversions.data = res.data.coursa_product_list;
+            });*/
 
 
 

@@ -12,7 +12,7 @@
  *
  */
 angular.module('CoursaStores').
-    controller('store-map-controller', function ($scope, storeService) {
+    controller('store-map-controller', function ($scope, $rootScope, storeService) {
 
         $scope.zoom = 19;
         $scope.imgUrl = 'app/stores/Target_SJ_overlay.png';
@@ -20,17 +20,15 @@ angular.module('CoursaStores').
         $scope.map;
         $scope.markers = {};
 
-        $scope.activeDate;
-        $scope.selectedDates = [new Date().setHours(0, 0, 0, 0)];
-        $scope.type = 'individual';
-
-        $scope.identity = angular.identity;
-
-        $scope.removeFromSelected = function(dt) {
+        /*$scope.removeFromSelected = function(dt) {
             $scope.selectedDates.splice($scope.selectedDates.indexOf(dt), 1);
-        }
+        }*/
 
-        var summary = storeService.getStoreSummary();
+        $rootScope.$on('selectedDates', function (event, data) {
+            console.log('data :',data); // 'Data to send'
+        });
+
+        /*var summary = storeService.getStoreSummary();
         summary.then(function(res){
             $scope.storeSummary = res.data;
             $scope.imgUrl = res.data.coursa_store_header.store_map;
@@ -49,7 +47,7 @@ angular.module('CoursaStores').
             $scope.max_checkout = $scope.storeSummary.coursa_store_summary.max_checkout_time;
             $scope.min_checkout = $scope.storeSummary.coursa_store_summary.min_checkout_time;
 
-        });
+        });*/
 
         var heatmap;
         $scope.$on('mapInitialized', function (event, map) {

@@ -36,48 +36,6 @@
             <div layout="column" layout-margin flex>
                 <widget layout-margin palette-background="white:500" title="DASHBOARDS.ANALYTICS.HEATMAP"
                         subtitle="DASHBOARDS.ANALYTICS.DATE" title-position="top">
-
-                    <div class='panel'><h3>Selection Type:</h3>
-
-                        <div class='btn-group'>
-                            <button class='btn btn-warning' ng-model='type' btn-radio='"individual"'>Individual
-                            </button>
-                            <button class='btn btn-warning' ng-model='type' btn-radio='"range"'>Range</button>
-                        </div>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <datepicker ng-model='activeDate' multi-select='selectedDates'
-                                            select-range='{{type=="range"}}'></datepicker>
-                            </td>
-                            <td style='width:50px'>
-                            </td>
-                            <td>
-                                <div ng-if='type=="individual"'>
-                                    Selected Dates:
-                                    <div class='well well-sm'>
-                                        <div ng-repeat='d in selectedDates | orderBy : identity'>
-                                            {{d | date : 'fullDate'}}
-                                            <button class='btn btn-xs btn-warning' style='margin:5px'
-                                                    ng-click='removeFromSelected(d)'>Remove
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ng-if='type=="range"'>
-                                    Selected Range:
-                                    <div class='well well-sm'>
-                                        {{(selectedDates | orderBy)[0] | date:"fullDate"}}
-              <span ng-if='selectedDates.length > 1'>
-                - {{(selectedDates | orderBy : '-')[0] | date:"fullDate"}}
-              </span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-
                     <map zoom="{{zoom}}" center="{{center}}" class="storeMap">
                         <shape name="image" url="{{imgUrl}}" bounds="{{imgBounds}}"></shape>
                         <marker ng-repeat="marker in markers" icon="{{img}}" title="{{marker.product_category}}"
@@ -85,7 +43,7 @@
                     </map>
                 </widget>
             </div>
-            <div layout="column" layout-margin flex ng-controller="store-grid-controller">
+            <!--<div layout="column" layout-margin flex ng-controller="store-grid-controller">
                 <div class="ui-grid-top-panel gridHeader"><label class="topHeaderLbl"> Top 10 Trafficked Product</label>
 
                     <div ui-grid="topTenSeclections" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns
@@ -104,7 +62,7 @@
                     <div ui-grid="topTenMissedConversions" class="storeGrid" ui-grid-auto-resize ui-grid-resize-columns
                          ui-grid-selection></div>
                 </div>
-            </div>
+            </div>-->
 
             <!--<div layout="column" layout-margin flex ng-controller="store-grid-controller">
                 <div class="ui-grid-top-panel gridHeader">Top 10 Trafficked Product

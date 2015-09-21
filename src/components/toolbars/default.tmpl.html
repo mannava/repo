@@ -1,8 +1,8 @@
-<div class="md-toolbar-tools">
-    <md-button class="md-icon-button" hide-gt-md ng-click="openSideNav('left')" aria-label="side navigation">
+<div class="md-toolbar-tools" ng-controller="defaultTmplController">
+    <!--<md-button class="md-icon-button" hide-gt-md ng-click="openSideNav('left')" aria-label="side navigation">
         <md-icon md-font-icon="icon-menu"></md-icon>
-    </md-button>
-    <h2 flex breadcrumbs="menu"></h2>
+    </md-button>-->
+   <!-- <h2 flex breadcrumbs="menu"></h2>-->
 
     <!--<md-menu>
         <md-button class="md-icon-button" aria-label="language" ng-click="$mdOpenMenu()" aria-label="change language">
@@ -15,10 +15,22 @@
         </md-menu-content>
     </md-menu>-->
 
-    <md-button class="md-icon-button toolbar-button animated" ng-click="toggleNotificationsTab(0)" aria-label="side navigation">
-        <md-icon md-font-icon="fa fa-calendar"></md-icon>
-    </md-button>
 
+    <!--<md-button class="md-icon-button toolbar-button animated" ng-click="toggleNotificationsTab(0)" aria-label="side navigation">
+        <md-icon md-font-icon="fa fa-calendar"></md-icon>
+    </md-button>-->
+
+    <div class="input-group datepickerWd" popover-template="dynamicPopover.templateUrl" popover-placement="bottom" data-toggle="popover">
+        <label class="form-control lblWd" data-ng-model="selectedDates"> {{(selectedDates | orderBy)[0] | date:"fullDate"}}
+              <span ng-if='selectedDates.length > 1'>
+                - {{(selectedDates | orderBy : '-')[0] | date:"fullDate"}}
+              </span> </label>
+    <span class="input-group-addon">
+        <i class="fa fa-calendar"></i>
+    </span>
+    </div>
+
+    {{selectedDates}}
     <md-button class="md-icon-button toolbar-button" ng-click="toggleNotificationsTab(1)">
         <md-icon md-font-icon="fa fa-filter"></md-icon>
         <!--<span class="toolbar-button-badge" theme-background="accent">2</span>-->
