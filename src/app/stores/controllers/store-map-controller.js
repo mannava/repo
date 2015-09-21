@@ -27,11 +27,16 @@ angular.module('CoursaStores').
         });
 
         $rootScope.$on('selectedDates', function (event, data) {
-            console.log(data, "0", data[0], "last",data[data.length-1]);
+            /*console.log(data);
+            for(var i=0;i<data.length;i++){
+                console.log(new Date(data[i]));
+            }
+            console.log(new Date(data[0]),new Date(data[data.length-1]));*/
+
             $scope.startDate = new Date(data[0]).toDateString();
             $scope.endDate = new Date(data[data.length-1]).toDateString();
-            mapData = storeService.getHeatMapData(data[0], data[data.length-1]);
-            var summary = storeService.getStoreSummary(data[0], data[data.length-1]);
+            mapData = storeService.getHeatMapData(data[1], data[data.length-1]);
+            var summary = storeService.getStoreSummary(data[1], data[data.length-1]);
 
             summary.then(function(res){
                 $scope.storeSummary = res.data;

@@ -22,11 +22,9 @@ angular.module('CoursaStores').
         $scope.topTenMissedConversions = {};
 
         $rootScope.$on('selectedDates', function (event, data) {
-            var d = new Date();
-            console.log(d.setUTCSeconds(data[0]));
-            $scope.topTenSeclections = storeService.geConversions("TOP_PC", data[0], data[data.length-1]);
-            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", data[0], data[data.length-1]);
-            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", data[0], data[data.length-1]);
+            $scope.topTenSeclections = storeService.geConversions("TOP_PC", data[1], data[data.length-1]);
+            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", data[1], data[data.length-1]);
+            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", data[1], data[data.length-1]);
 
             $scope.topTenSeclections.then(function(res){
                 $scope.topTenSeclections.data = res.data.coursa_product_list;
@@ -40,11 +38,6 @@ angular.module('CoursaStores').
                 $scope.topTenMissedConversions.data = res.data.coursa_product_list;
             });
         });
-
-
-
-
-
 
 
         //Top 10 Trafficked Product
