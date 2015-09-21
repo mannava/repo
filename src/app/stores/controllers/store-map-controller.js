@@ -19,39 +19,42 @@ angular.module('CoursaStores').
         $scope.imgBounds = [[37.303938, -121.866606], [37.305238, -121.864969]];
         $scope.map;
         $scope.markers = {};
+        $scope.startDate, $scope.endDate;
+        var mapData;
 
-        /*$scope.removeFromSelected = function(dt) {
-            $scope.selectedDates.splice($scope.selectedDates.indexOf(dt), 1);
-        }*/
 
         $rootScope.$on('selectedDates', function (event, data) {
-            console.log('data :',data); // 'Data to send'
+            //console.log('data :',data); // 'Data to send'
+            $scope.startDate = new Date(data[0]).toDateString();
+            $scope.endDate = new Date(data[data.length-1]).toDateString();
+            console.log($scope.startDate, $scope.endDate);
+            mapData = storeService.getHeatMapData(data[0], data[data.length-1]);
+            var summary = storeService.getStoreSummary(data[0], data[data.length-1]);
+
+            summary.then(function(res){
+                $scope.storeSummary = res.data;
+                $scope.imgUrl = res.data.coursa_store_header.store_map;
+                var lats = JSON.parse($scope.storeSummary.coursa_store_header.lat);
+                var lngs = JSON.parse($scope.storeSummary.coursa_store_header.lng);
+                var lat = ((lats[0] + lats[1])/2).toFixed(6);
+                var lng = ((lngs[0] + lngs[1])/2).toFixed(6);
+                $scope.imgBounds =[[lats[0], lngs[0]], [lats[1], lngs[1]]];
+                $scope.center = lat +", "+lng;
+                $scope.store_coverage = $scope.storeSummary.coursa_store_summary.store_coverage;
+                $scope.product_conversion = $scope.storeSummary.coursa_store_summary.product_conversion;
+                $scope.customer_conversion = $scope.storeSummary.coursa_store_summary.customer_conversion;
+                $scope.max_checkout = $scope.storeSummary.coursa_store_summary.max_checkout_time;
+                $scope.min_checkout = $scope.storeSummary.coursa_store_summary.min_checkout_time;
+
+            });
         });
 
-        /*var summary = storeService.getStoreSummary();
-        summary.then(function(res){
-            $scope.storeSummary = res.data;
-            $scope.imgUrl = res.data.coursa_store_header.store_map;
-            var lats = JSON.parse($scope.storeSummary.coursa_store_header.lat);
-            var lngs = JSON.parse($scope.storeSummary.coursa_store_header.lng);
-            var lat = ((lats[0] + lats[1])/2).toFixed(6);
-            var lng = ((lngs[0] + lngs[1])/2).toFixed(6);
-            $scope.imgBounds =[[lats[0], lngs[0]], [lats[1], lngs[1]]];
-            $scope.center = lat +", "+lng;
-            $scope.store_coverage = $scope.storeSummary.coursa_store_summary.store_coverage;
-            $scope.product_conversion = $scope.storeSummary.coursa_store_summary.product_conversion;
-            $scope.customer_conversion = $scope.storeSummary.coursa_store_summary.customer_conversion;
-            console.log($scope.customer_conversion);
-            $scope.hell = $scope.product_conversion.overall.match(/\d+/)[0];
 
-            $scope.max_checkout = $scope.storeSummary.coursa_store_summary.max_checkout_time;
-            $scope.min_checkout = $scope.storeSummary.coursa_store_summary.min_checkout_time;
 
-        });*/
 
         var heatmap;
         $scope.$on('mapInitialized', function (event, map) {
-            var mapData = storeService.getHeatMapData();
+
             mapData.then(function (res) {
                 $scope.heatMapData = res.data.storeheatmap;
                 $scope.map = map;

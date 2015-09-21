@@ -10,12 +10,19 @@ angular.module('Coursa')
             content: 'Hello, World!',
             templateUrl: 'app/stores/partials/datePopover.html',
             title: 'Title'
-        };
+        }; 
 
         $scope.watchDates= function(){
-            $rootScope.$watch('selectedDates', function(newVal, oldVal) {
-                console.log($scope.selectedDates);
-                $scope.$broadcast('selectedDates', $scope.selectedDates);
+            $scope.$watch('selectedDates', function() {
+                $rootScope.$broadcast('selectedDates', $scope.selectedDates);
             });
+        }
+
+        $scope.enableGet = function(){
+            //if($scope.selectedDates > 2)
+            //$scope.getdataBtn.ng-disabled= false;
+            //$scope.getdataBtn.enabled = true;
+            //$scope.getdataBtn.ngClass = ".enableGet";
+
         }
     });

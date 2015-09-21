@@ -15,17 +15,23 @@
  *
  */
 angular.module('CoursaStores').
-    controller('store-grid-controller', function ($scope, storeService) {
+    controller('store-grid-controller', function ($scope, $rootScope, storeService) {
 
         $scope.topTenSeclections = {};
         $scope.bottomTenMissedSeclections = {};
         $scope.topTenMissedConversions = {};
 
-        $scope.topTenSeclections = storeService.geConversions("TOP_PC");
-        $scope.bottomTenMissedSeclections = storeService.geConversions("MC");
-        $scope.topTenMissedConversions = storeService.geConversions("LOW_PC");
+        $rootScope.$on('selectedDates', function (event, data) {
+            $scope.startDate = new Date(data[0]).toDateString();
+            $scope.endDate = new Date(data[data.length-1]).toDateString();
+            $scope.topTenSeclections = storeService.geConversions("TOP_PC", $scope.startDate, $scope.endDate);
+            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", $scope.startDate, $scope.endDate);
+            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", $scope.startDate, $scope.endDate);
+        });
 
-            /*$scope.topTenSeclections.then(function(res){
+
+
+            $scope.topTenSeclections.then(function(res){
                 $scope.topTenSeclections.data = res.data.coursa_product_list;
             });
 
@@ -35,7 +41,7 @@ angular.module('CoursaStores').
 
             $scope.topTenMissedConversions.then(function(res){
                 $scope.topTenMissedConversions.data = res.data.coursa_product_list;
-            });*/
+            });
 
 
 
