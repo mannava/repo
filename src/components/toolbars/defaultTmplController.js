@@ -5,6 +5,7 @@ angular.module('Coursa')
     .controller('defaultTmplController', function ($scope, $rootScope) {
         $scope.activeDate;
         $scope.selectedDates = [new Date().setHours(0, 0, 0, 0)];
+        $scope.status = true;
 
         $scope.dynamicPopover = {
             content: 'Hello, World!',
@@ -19,10 +20,6 @@ angular.module('Coursa')
         }
 
         $scope.enableGet = function(){
-            //if($scope.selectedDates > 2)
-            //$scope.getdataBtn.ng-disabled= false;
-            //$scope.getdataBtn.enabled = true;
-            //$scope.getdataBtn.ngClass = ".enableGet";
-
+            $scope.status =  ($scope.selectedDates.length > 2) ? false: true;
         }
     });

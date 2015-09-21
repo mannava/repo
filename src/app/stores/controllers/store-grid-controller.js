@@ -22,14 +22,9 @@ angular.module('CoursaStores').
         $scope.topTenMissedConversions = {};
 
         $rootScope.$on('selectedDates', function (event, data) {
-            $scope.startDate = new Date(data[0]).toDateString();
-            $scope.endDate = new Date(data[data.length-1]).toDateString();
-            $scope.topTenSeclections = storeService.geConversions("TOP_PC", $scope.startDate, $scope.endDate);
-            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", $scope.startDate, $scope.endDate);
-            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", $scope.startDate, $scope.endDate);
-        });
-
-
+            $scope.topTenSeclections = storeService.geConversions("TOP_PC", data[0], data[data.length-1]);
+            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", data[0], data[data.length-1]);
+            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", data[0], data[data.length-1]);
 
             $scope.topTenSeclections.then(function(res){
                 $scope.topTenSeclections.data = res.data.coursa_product_list;
@@ -42,6 +37,11 @@ angular.module('CoursaStores').
             $scope.topTenMissedConversions.then(function(res){
                 $scope.topTenMissedConversions.data = res.data.coursa_product_list;
             });
+        });
+
+
+
+
 
 
 
