@@ -35,8 +35,12 @@ angular.module('CoursaStores').
 
             $scope.startDate = new Date(data[0]).toDateString();
             $scope.endDate = new Date(data[data.length-1]).toDateString();
-            mapData = storeService.getHeatMapData(data[1], data[data.length-1]);
-            var summary = storeService.getStoreSummary(data[1], data[data.length-1]);
+            var queryStDate = data[0];
+            var queryEndDate = data[data.length-1];
+
+            mapData = storeService.getHeatMapData(queryStDate, queryEndDate);
+
+            var summary = storeService.getStoreSummary(queryStDate, queryEndDate);
 
             summary.then(function(res){
                 $scope.storeSummary = res.data;

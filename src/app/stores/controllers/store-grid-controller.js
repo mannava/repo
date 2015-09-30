@@ -22,9 +22,13 @@ angular.module('CoursaStores').
         $scope.topTenMissedConversions = {};
 
         $rootScope.$on('selectedDates', function (event, data) {
-            $scope.topTenSeclections = storeService.geConversions("TOP_PC", data[1], data[data.length-1]);
-            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", data[1], data[data.length-1]);
-            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", data[1], data[data.length-1]);
+
+            var queryStDate = data[0];
+            var queryEndDate = data[data.length-1];
+
+            $scope.topTenSeclections = storeService.geConversions("TOP_PC", queryStDate, queryEndDate);
+            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", queryStDate, queryEndDate);
+            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", queryStDate, queryEndDate);
 
             $scope.topTenSeclections.then(function(res){
                 $scope.topTenSeclections.data = res.data.coursa_product_list;

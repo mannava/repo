@@ -4,7 +4,7 @@ angular.module('Coursa', [
     // inject angular modules
     'ngAria', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngMaterial','ngMap','ngTable','ngMessages','ui.bootstrap','gm.datepickerMultiSelect',
     // inject extra 3rd party angular modules
-    'ui.router', 'pascalprecht.translate', 'LocalStorageModule', 'googlechart', 'chart.js', 'angularMoment', 'uiGmapgoogle-maps', 'md.data.table','gridster',
+    'ui.router','blockUI', 'pascalprecht.translate', 'LocalStorageModule', 'googlechart', 'chart.js', 'angularMoment', 'uiGmapgoogle-maps', 'md.data.table','gridster',
     // UI grid
     'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ui.grid.autoResize',
     // inject our own Coursa modules

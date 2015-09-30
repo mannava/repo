@@ -15,7 +15,7 @@ angular.module('Coursa')
 
         $scope.watchDates= function(){
             $scope.$watch('selectedDates', function() {
-                $rootScope.$broadcast('selectedDates', $scope.selectedDates);
+                $rootScope.$broadcast('selectedDates', $scope.selectedDates.sort());
             });
         }
 
