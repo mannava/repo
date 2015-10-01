@@ -21,14 +21,18 @@ angular.module('CoursaStores').
         $scope.bottomTenMissedSeclections = {};
         $scope.topTenMissedConversions = {};
 
-        $rootScope.$on('selectedDates', function (event, data) {
+        $rootScope.$on('selectedDates', function (event, dateObj) {
+            $scope.gridData(dateObj);
+        });
 
-            var queryStDate = data[0];
-            var queryEndDate = data[data.length-1];
+        $scope.$on('executeGrid', function(e, dateObj) {
+            $scope.gridData(dateObj);
+        });
 
-            $scope.topTenSeclections = storeService.geConversions("TOP_PC", queryStDate, queryEndDate);
-            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", queryStDate, queryEndDate);
-            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", queryStDate, queryEndDate);
+        $scope.gridData = function(dateObj){
+            $scope.topTenSeclections = storeService.geConversions("TOP_PC", dateObj.queryStDate, dateObj.queryEndDate);
+            $scope.bottomTenMissedSeclections = storeService.geConversions("MC", dateObj.queryStDate, dateObj.queryEndDate);
+            $scope.topTenMissedConversions = storeService.geConversions("LOW_PC", dateObj.queryStDate, dateObj.queryEndDate);
 
             $scope.topTenSeclections.then(function(res){
                 $scope.topTenSeclections.data = res.data.coursa_product_list;
@@ -41,8 +45,7 @@ angular.module('CoursaStores').
             $scope.topTenMissedConversions.then(function(res){
                 $scope.topTenMissedConversions.data = res.data.coursa_product_list;
             });
-        });
-
+        }
 
         //Top 10 Trafficked Product
         $scope.topTenSeclections = {
